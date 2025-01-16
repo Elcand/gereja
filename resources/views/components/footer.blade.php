@@ -75,9 +75,6 @@
                 </div>
                 <!-- /.widget --> --}}
             </div>
-            <!-- /column -->
         </div>
-        <!--/.row -->
     </div>
-    <!-- /.container -->
 </footer>

@@ -1,4 +1,4 @@
-@extends('components.navbar')
+@extends('components.layout')
 
 @section('title', 'Gereja Immanuel')
 
@@ -33,8 +33,6 @@
     @include('article')
 
     @include('maps')
-
-    @include('components.footer')
 
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>

@@ -7,12 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
-<body>
-    @include('admin.layouts.header')
-    @include('admin.layouts.sidebar')
-    @yield('content')
+<body class="bg-gray-100">
+    <div class="ps-22 font">
+        @include('admin.layouts.sidebar')
+        @yield('content')
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="{{ asset('assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('assets/js/theme.js') }}"></script>
+
 </body>
 
 </html>

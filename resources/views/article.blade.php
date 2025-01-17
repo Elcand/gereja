@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
 <div id="article">
     <div class="container py-14 py-md-14">
         <div class="row text-center">

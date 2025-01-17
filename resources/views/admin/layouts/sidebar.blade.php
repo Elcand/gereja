@@ -1,90 +1,80 @@
-<link rel="stylesheet" href="{{ asset('assets/css/plugins.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2  bg-white my-2"
-    id="sidenav-main">
-    <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-            aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand px-4 py-3 m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
-            target="_blank">
-            <img src="{{ asset('assets/css/style.css') }}" class="navbar-brand-img" width="26" height="26"
-                alt="main_logo">
-            <span class="ms-1 text-sm text-dark">Creative Tim</span>
-        </a>
-    </div>
-    <hr class="horizontal dark mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active bg-gradient-dark text-white" href="../pages/dashboard.html">
-                    <i class="material-symbols-rounded opacity-5">dashboard</i>
-                    <span class="nav-link-text ms-1">Dashboard</span>
+<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+    type="button"
+    class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" fill-rule="evenodd"
+            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+        </path>
+    </svg>
+</button>
+
+<aside id="default-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-800"
+    aria-label="Sidenav">
+    <div
+        class="overflow-y-auto py-8 px-3 h-full bg-gray-600 border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <h3 class="mb-10 text-center text-3xl font-extrabold text-white">Immanuel Church</h3>
+        <ul class="space-y-3 overflow-hidden">
+            <li>
+                <a href="/dashboard"
+                    class="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    {{-- <svg aria-hidden="true"
+                        class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                    </svg> icon dashboard --}}
+                    <span class="ml-3">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/tables.html">
-                    <i class="material-symbols-rounded opacity-5">table_view</i>
-                    <span class="nav-link-text ms-1">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/billing.html">
-                    <i class="material-symbols-rounded opacity-5">receipt_long</i>
-                    <span class="nav-link-text ms-1">Billing</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/virtual-reality.html">
-                    <i class="material-symbols-rounded opacity-5">view_in_ar</i>
-                    <span class="nav-link-text ms-1">Virtual Reality</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/rtl.html">
-                    <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
-                    <span class="nav-link-text ms-1">RTL</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/notifications.html">
-                    <i class="material-symbols-rounded opacity-5">notifications</i>
-                    <span class="nav-link-text ms-1">Notifications</span>
-                </a>
-            </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/profile.html">
-                    <i class="material-symbols-rounded opacity-5">person</i>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/sign-in.html">
-                    <i class="material-symbols-rounded opacity-5">login</i>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/sign-up.html">
-                    <i class="material-symbols-rounded opacity-5">assignment</i>
-                    <span class="nav-link-text ms-1">Sign Up</span>
-                </a>
+            <li>
+                <button type="button"
+                    class="flex items-center p-2 w-full text-base font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                    aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
+                    {{-- <svg aria-hidden="true"
+                        class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                            clip-rule="evenodd"></path>
+                    </svg> --}}
+                    <span class="flex-1 ml-3 text-left whitespace-nowrap">Admin Control</span>
+                    <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <ul id="dropdown-pages" class="hidden py-2 space-y-4 overflow-hidden">
+                    <li>
+                        <a href="{{ route('dashboard.home') }}"
+                            class="flex items-center p-2 pl-11  w-full  text-sm font-normal text-white rounded-lg transition duration-75 group hover:bg-primary-500 dark:text-white dark:hover:bg-gray-700">Manage
+                            Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 pl-11 w-full text-sm font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Manage
+                            About</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 pl-11 w-full text-sm font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Manage
+                            Church</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 pl-11 w-full text-sm font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Manage
+                            Article</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 pl-11 w-full text-sm font-normal text-white rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Manage
+                            Maps</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-        <div class="mx-3">
-            <a class="btn btn-outline-dark mt-4 w-100"
-                href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree"
-                type="button">Documentation</a>
-            <a class="btn bg-gradient-dark w-100"
-                href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree"
-                type="button">Upgrade to pro</a>
-        </div>
-    </div>
 </aside>
-
-<script src="{{ asset('assets/js/plugins.js') }}"></script>
-<script src="{{ asset('assets/js/theme.js') }}"></script>

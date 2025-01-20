@@ -7,6 +7,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
+
+
 class ArticleController extends Controller
 {
     /**
@@ -32,7 +34,7 @@ class ArticleController extends Controller
     /**
      * store
      *
-     * @param  mixed $request
+     * @param  mixed
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse
@@ -48,5 +50,18 @@ class ArticleController extends Controller
         ]);
 
         return redirect()->route('article.index')->with(['success' => 'Data Berhasil Disimpan!']);
+    }
+
+    /**
+     * show
+     *
+     * @param  mixed
+     * @return View
+     */
+    public function show(string $id): View
+    {
+        $articles = Article::findOrFail($id);
+
+        return view('admin.create.show', compact('articles'));
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapsController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home']);
@@ -17,3 +18,5 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/dashboard/home', [HeroController::class, 'hero'])->name('dashboard.home');
+
+Route::resource('/article', ArticleController::class);

@@ -2,12 +2,12 @@
 
 
 @section('content')
-    <div class="container mt-5 mb-5 ps-8">
+    <div class="container mt-10 mb-5 ps-8">
         <div class="row">
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <img src="{{ asset('storage/church/' . $church->image) }}" class="rounded" style="width: 100%">
+                        <img src="{{ asset('storage/' . $church->image) }}" class="rounded" style="width: 400px; height:auto;">
                     </div>
                 </div>
             </div>

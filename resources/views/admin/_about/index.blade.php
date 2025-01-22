@@ -1,55 +1,31 @@
-@extends('admin.layouts.layout')
-
-@section('title', 'About')
+{{-- @extends('admin.layouts.layout')
 
 
 @section('content')
-    <div class="container mt-5">
-        <div class="row ps-3">
-            <div class="col-md-12 mt-3">
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
-                        <a href="{{ route('article.create') }}" class="btn btn-primary bg-gray-900 border-gray-900">Add
-                            article</a>
-                        <table class="table table-bordered mt-5">
-                            <thead>
-                                <tr class="text-center text-gray-900">
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Content</th>
-                                    <th scope="col" style="width: 20%">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($articles as $article)
-                                    <tr>
-                                        <td>{{ $article->title }}</td>
-                                        <td>{{ $article->content }}</td>
-                                        <td>
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('article.destroy', $article->id) }}" method="POST"
-                                                class="row w-15">
-                                                <a href="{{ route('article.show', $article->id) }}"
-                                                    class="btn btn-sm btn-dark m-2">SHOW</a>
-                                                <a href="{{ route('article.edit', $article->id) }}"
-                                                    class="btn btn-sm btn-primary m-2">EDIT</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-sm btn-danger bg-red-500 m-2">HAPUS</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="3" class="text-center">Data articles belum Tersedia.</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                        {{ $articles->links() }}
+    <section id="about" class="wrapper bg-light wrapper-border">
+        <div class="container pt-12 pt-md-14 pb-10 pb-md-12">
+            <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                @forelse ($abouts as $about)
+                    <div class="col-md-8 col-lg-6 col-xl-5 order-lg-2 position-relative">
+                        <div class="shape bg-soft-primary rounded-circle rellax w-20 h-20" data-rellax-speed="1"
+                            style="top: -2rem; right: -1.9rem;"></div>
+                        <figure class="rounded"><img src="{{ asset('/storage/public/about' . $about->image) }}"></figure>
                     </div>
-                </div>
+                    <h1 class="text-center text-uppercase mb-1 my-12 fs-35 font-bold">{{ $about->title }}</h1>
+                    <p class="display-7
+                mb-2 me-lg-n5 fs-22 text-center">
+                        {{ $about->description1 }}
+                    </p>
+                    <p></p>
+                    <div class="col-lg-7">
+                        <p class="lead fs-21">{{ $about->description2 }}</P>
+                    </div>
+                @empty
+                    <div class="alert alert-danger">
+                        Data about belum Tersedia.
+                    </div>
+                @endforelse
             </div>
         </div>
-    </div>
-@endsection
+    </section>
+@endsection --}}

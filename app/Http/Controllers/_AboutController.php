@@ -2,46 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
-use App\Models\About;
-use Illuminate\Http\RedirectResponse;
+// use Illuminate\Http\Request;
+// use Illuminate\View\View;
+// use App\Models\About;
+// use Illuminate\Http\RedirectResponse;
 
-class AboutController extends Controller
-{
-    public function index(): View
-    {
-        $abouts = About::latest()->paginate(10);
-        return view('admin.about.index', compact('abouts'));
-    }
+// class AboutController extends Controller
+// {
+//     public function index(): View
+//     {
+//         $abouts = About::latest()->paginate(10);
+//         return view('about', compact('abouts'));
+//     }    
 
+//     /**
+//      * store
+//      * @param mixed
+//      * @return RedirectResponse
+//      */
+//     public function store(Request $request): RedirectResponse
+//     {
+//         $request->validate([
+//             'image'             => 'image|mimes:jpeg,jpg,png|max:5120',
+//             'title'             => 'required|min:5',
+//             'description1'       => 'required|min:10',
+//             'description2'       => 'required|min:10',
+//         ]);
 
-    /**
-     * create
-     * @return View
-     */
-    public function create(): View
-    {
-        return view('admin.about.create');
-    }
+//         if ($request->hasFile('image')) {
+//             $image = $request->file('image');
+//             $imagePath = $image->storeAs('public/abouts', $image->hashName());
+//         } else {
+//             $imagePath = null;
+//         }
 
-    /**
-     * store
-     * @param mixed
-     * @return RedirectResponse
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'title'         => 'required|min:5',
-            'content'       => 'required|min:10',
-        ]);
+//         About::create([
+//             'image'         => $imagePath,
+//             'title'         => $request->title,
+//             'description1'   => $request->description1,
+//             'description2'   => $request->description2,
 
-        About::create([
-            'title'         => $request->title,
-            'content'       => $request->content,
-        ]);
+//         ]);
 
-        return redirect()->route('admin.about.index')->with(['success' => 'Data Berhasil Disimpan!']);
-    }
-}
+//         return redirect()->route('about')->with(['success' => 'Data Berhasil Disimpan!']);
+//     }
+// }

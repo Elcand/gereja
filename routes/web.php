@@ -25,5 +25,7 @@ Route::resource('/article', ArticleController::class);
 // Route::resource('/about', AboutController::class);
 
 Route::resource('/church', ChurchController::class);
+Route::get('/church/show/{id}', [ChurchController::class, 'show'])->name('church.show');
 
 Route::resource('/maps', MapsController::class);
+Route::get('/maps/show/{id}', [MapsController::class, 'show'])->name('maps.show');

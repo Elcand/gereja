@@ -37,15 +37,17 @@ class MapsController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
+            'name'             => 'required',
+            'address'          => 'required',
             'latitude'         => 'required|numeric',
-            'longtitude'       => 'required|numeric',
+            'longitude'        => 'required|numeric',
         ]);
 
-        Maps::create([
-            'latitude'         => $request->latitude,
-            'longtitude'       => $request->longtitude,
-        ]);
+        $maps = $request->all();
+        $maps['latitude'] = round($maps['latitude'], 6);
+        $maps['longitude'] = round($maps['longitude'], 6);
 
+        Maps::create($request->all());
         return redirect()->route('maps.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
@@ -57,9 +59,11 @@ class MapsController extends Controller
      */
     public function show(string $id): View
     {
-        $maps = Maps::findOrFail($id);
-
-        return view('admin.maps.show', compact('maps'));
+        // if ($request->hasName()) {
+        //     $church = $request->hasName();
+        // }
+        $map = Maps::findOrFail($id);
+        return view('admin.maps.show', compact('map'));
     }
 
     /**
@@ -68,7 +72,7 @@ class MapsController extends Controller
      * @param  mixed
      * @return View
      */
-    public function edit(string $id): View
+    public function edit(string $id, Maps $maps): View
     {
 
         $maps = Maps::findOrFail($id);
@@ -82,17 +86,21 @@ class MapsController extends Controller
      * @param  mixed
      * @return RedirectResponse
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, $id, Maps $maps): RedirectResponse
     {
-
         $request->validate([
+            'name'             => 'required',
+            'address'          => 'required',
             'latitude'         => 'required|numeric',
-            'longtitude'       => 'required|numeric',
+            'longitude'        => 'required|numeric',
         ]);
 
+        $maps->update($request->all());
         $maps = Maps::findOrFail($id);
+        $maps->name = $request->input('name');
+        $maps->address = $request->input('address');
         $maps->latitude = $request->input('latitude');
-        $maps->longtitude = $request->input('longtitude');
+        $maps->longitude = $request->input('longitude');
         $maps->save();
 
         return redirect()->route('maps.index')->with(['success' => 'Data Berhasil Diubah!']);

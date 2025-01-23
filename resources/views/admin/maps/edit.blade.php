@@ -14,6 +14,32 @@
                             @method('PUT')
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="form-group mb-3 col-span-1">
+                                    <label class="font-weight-bold">Nama Gereja</label>
+                                    <input type="text"
+                                        class="form-control @error('name') is-invalid @enderror rounded-md border-gray-200"
+                                        name="name" value="{{ old('name', $maps->name) }}" placeholder="">
+
+                                    <!-- error message untuk title -->
+                                    @error('name')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group mb-3 col-span-1">
+                                    <label class="font-weight-bold">Alamat</label>
+                                    <input type="text"
+                                        class="form-control @error('address') is-invalid @enderror rounded-md border-gray-200"
+                                        name="address" value="{{ old('address', $maps->address) }}" placeholder="">
+
+                                    <!-- error message untuk title -->
+                                    @error('address')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group mb-3 col-span-1">
                                     <label class="font-weight-bold">Latitude</label>
                                     <input type="numeric"
                                         class="form-control @error('latitude') is-invalid @enderror rounded-md border-gray-200"
@@ -28,13 +54,13 @@
                                 </div>
 
                                 <div class="form-group mb-3 col-span-1">
-                                    <label class="font-weight-bold">Longtitude</label>
-                                    <input class="form-control @error('longtitude') is-invalid @enderror" name="longtitude"
-                                        placeholder="Input longtitude"
-                                        value="{{ old('longtitude', $maps->longtitude) }}"></input>
+                                    <label class="font-weight-bold">Longitude</label>
+                                    <input class="form-control @error('longitude') is-invalid @enderror" name="longitude"
+                                        placeholder="Input longitude"
+                                        value="{{ old('longitude', $maps->longitude) }}"></input>
 
                                     <!-- error message untuk description -->
-                                    @error('longtitude')
+                                    @error('longitude')
                                         <div class="alert alert-danger mt-2">
                                             {{ $message }}
                                         </div>

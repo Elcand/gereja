@@ -9,7 +9,9 @@ class Maps extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'name',
+        'address',
         'latitude',
-        'longtitude'
+        'longitude'
     ];
 }

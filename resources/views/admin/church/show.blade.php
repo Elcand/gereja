@@ -25,6 +25,7 @@
                         <hr />
                         <p class="mb-4 mt-4">Kode Pos : {{ $church->postal_code }}</p>
                     </div>
+                    <a href="{{ route('maps.show', $church->id) }}" class="text-right m-6">Lihat Peta &Rightarrow;</a>
                 </div>
             </div>
         </div>

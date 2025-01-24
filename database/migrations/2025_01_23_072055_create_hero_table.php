@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('herosection', function (Blueprint $table) {
+        Schema::create('heroes', function (Blueprint $table) {
             $table->id();
-            $table->string('welcome_word');
-            $table->string('name_church');
+            $table->string('image')->nullable();
+            $table->string('title');
+            $table->string('subtitle')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('herosection');
+        Schema::dropIfExists('hero');
     }
 };

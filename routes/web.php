@@ -18,7 +18,9 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/dashboard/home', [HeroController::class, 'hero'])->name('dashboard.home');
+Route::resource('/hero', HeroController::class);
+Route::post('/hero', [HeroController::class, 'storeOrUpdate'])->name('hero.storeOrUpdate');
+
 
 Route::resource('/article', ArticleController::class);
 

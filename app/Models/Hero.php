@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Hero extends Model
 {
     use HasFactory;
-    protected $fillable = ['image', 'welcome_words', 'name_church'];
+    protected $fillable = ['image', 'title', 'subtitle',];
 }

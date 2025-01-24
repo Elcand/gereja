@@ -49,7 +49,7 @@
                 </button>
                 <ul id="dropdown-pages" class="hidden py-2 space-y-4 overflow-hidden">
                     <li>
-                        <a href="{{ route('dashboard.home') }}"
+                        <a href="{{ route('hero.index') }}"
                             class="flex items-center p-2 pl-11  w-full  text-sm font-normal text-white rounded-lg transition duration-75 group hover:bg-primary-500 dark:text-white dark:hover:bg-gray-700">Manage
                             Home</a>
                     </li>

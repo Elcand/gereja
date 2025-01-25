@@ -8,7 +8,8 @@
             <div class="swiper">
                 <div>
                     <div class="swiper-slide bg-overlay bg-overlay-500 bg-dark bg-image"
-                        data-image-src="{{ asset('assets/img/Gereja.jpeg') }}"></div>
+                        data-image-src="{{ asset('storage/' . $hero->image) }}">
+                    </div>
                 </div>
             </div>
             <div class="swiper-static">
@@ -18,7 +19,7 @@
                             <h1 class="fs-25 text-uppercase ls-xl text-white mb-3">
                                 Selamat Datang di</h1>
                             <h2 class="display-1 fs-55 text-white mb-0">
-                                Immanuel Church</h2>
+                                {{ $hero->title }}</h2>
                         </div>
                     </div>
                 </div>

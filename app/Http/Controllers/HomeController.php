@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hero;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function index()
     {
-        return view('home');
+        $hero = Hero::first();  // Atau ambil data sesuai kebutuhan
+        return view('home', compact('hero'));  // Kirim data ke view
     }
 }

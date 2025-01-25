@@ -8,7 +8,11 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ChurchController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HeroController::class, 'index']);
+Route::get('/', function () {
+    $hero = \App\Models\Hero::first(); // Atau query sesuai kebutuhan
+    return view('home', compact('hero'));  // Kirim data ke view
+});
 
 Route::resource('/about', AboutController::class);
 Route::post('/about', [AboutController::class, 'storeOrUpdate'])->name('about.storeOrUpdate');

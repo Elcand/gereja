@@ -28,9 +28,10 @@
 
     @include('about')
 
+    @include('article')
+
     @include('church')
 
-    @include('article')
 
     @include('maps')
 

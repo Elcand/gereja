@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home']);
 
-// Route::get('/about', [AboutController::class, 'about']);
+Route::resource('/about', AboutController::class);
+Route::post('/about', [AboutController::class, 'storeOrUpdate'])->name('about.storeOrUpdate');
 
 // Route::get('/maps', [MapsController::class, 'maps']);
 
@@ -24,7 +25,6 @@ Route::post('/hero', [HeroController::class, 'storeOrUpdate'])->name('hero.store
 
 Route::resource('/article', ArticleController::class);
 
-// Route::resource('/about', AboutController::class);
 
 Route::resource('/church', ChurchController::class);
 Route::get('/church/show/{id}', [ChurchController::class, 'show'])->name('church.show');

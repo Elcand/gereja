@@ -22,6 +22,16 @@
 
                             @csrf
                             <div class="mb-3">
+
+                                @if (!empty($hero->image))
+                                    <div class="mt-3">
+                                        <p class="text-gray-700 dark:text-gray-300">Gambar Latar Saat Ini:</p>
+                                        <!-- Tampilkan gambar dari database -->
+                                        <img src="{{ asset('storage/' . $hero->image) }}" alt="Background Image"
+                                            class="img-fluid rounded-lg border border-gray-300 dark:border-gray-600"
+                                            style="max-height: 200px; object-fit: cover;">
+                                    </div>
+                                @endif
                                 <label for="image"
                                     class="form-label block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Upload Gambar
@@ -35,16 +45,6 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-
-                                @if (!empty($hero->image))
-                                    <div class="mt-3">
-                                        <p class="text-gray-700 dark:text-gray-300">Gambar Latar Saat Ini:</p>
-                                        <!-- Tampilkan gambar dari database -->
-                                        <img src="{{ asset('storage/' . $hero->image) }}" alt="Background Image"
-                                            class="img-fluid rounded-lg border border-gray-300 dark:border-gray-600"
-                                            style="max-height: 200px; object-fit: cover;">
-                                    </div>
-                                @endif
 
                             </div>
 

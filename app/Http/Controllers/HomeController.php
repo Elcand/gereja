@@ -14,8 +14,8 @@ class HomeController extends Controller
     {
         $hero = Hero::first();
         $about = About::first();
-        $article = Article::first();
-        $church = Church::first();
-        return view('home', compact('hero', 'about', 'article', 'church'));  // Kirim data ke view
+        $articles = Article::all();
+        $churches = Church::all();
+        return view('home', compact('hero', 'about', 'articles', 'churches'));  // Kirim data ke view
     }
 }

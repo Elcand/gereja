@@ -8,30 +8,32 @@
             data-items-md="2" data-items-xs="1">
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <article>
-                            <div class="card shadow-lg">
-                                <div class="card-body p-6">
-                                    <div class="post-header">
-                                        <div class="post-category">
-                                            <a href="#" class="hover" rel="category">Prise<a>
+                    @foreach ($articles as $article)
+                        <div class="swiper-slide">
+                            <article>
+                                <div class="card shadow-lg">
+                                    <div class="card-body p-6">
+                                        <div class="post-header">
+                                            <div class="post-category">
+                                                <a href="#" class="hover" rel="category"><a>
+                                            </div>
+                                            <h2 class="post-title h3 mt-1 mb-3">
+                                                <a class="link-dark" href="#">{{ $article->title }}</a>
+                                            </h2>
                                         </div>
-                                        <h2 class="post-title h3 mt-1 mb-3">
-                                            <a class="link-dark" href="#">{{ $article->title }}</a>
-                                        </h2>
-                                    </div>
-                                    <div class="post-footer">
-                                        <ul class="post-meta d-flex mb-0">
-                                            <li class="post-date">
-                                                <i class="uil uil-calendar-alt"></i>
-                                                <span>{{ $article->created_at->diffForHumans() }}</span>
-                                            </li>
-                                        </ul>
+                                        <div class="post-footer">
+                                            <ul class="post-meta d-flex mb-0">
+                                                <li class="post-date">
+                                                    <i class="uil uil-calendar-alt"></i>
+                                                    <span>{{ $article->created_at->diffForHumans() }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
-                    </div>
+                            </article>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

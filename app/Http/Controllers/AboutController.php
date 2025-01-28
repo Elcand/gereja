@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 
 class AboutController extends Controller
 {
-    /**.
+    /**
      * @return \Illuminate\View\View
      */
     public function index(): View
@@ -18,6 +18,17 @@ class AboutController extends Controller
         $about = About::first();
         return view('admin.about.index', compact('about'));
     }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function aboutPage(): View
+    {
+        $about = About::first(); // Mengambil data pertama dari tabel About
+        @dd($about);
+        return view('about', compact('about')); // Mengirimkan data ke view
+    }
+
 
     /**
      * @param  \Illuminate\Http\Request  $request

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class About extends Model
 {
     use HasFactory;
+    protected $table = 'abouts'; // Pastikan nama tabelnya benar
     protected $fillable = [
         'title',
         'description',

@@ -6,11 +6,14 @@ use App\Models\Article;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
     /**
-     * @return void
+     * Menampilkan daftar artikel.
+     *
+     * @return View
      */
     public function index(): View
     {
@@ -18,99 +21,96 @@ class ArticleController extends Controller
         return view('admin.manage.article', compact('articles'));
     }
 
-
     /**
-     * create
+     * Form untuk membuat artikel baru.
      *
      * @return View
      */
     public function create(): View
     {
-        return view('admin.create.article');
+        return view('admin.create.articles');
     }
 
     /**
-     * store
+     * Menyimpan artikel baru.
      *
-     * @param  mixed
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'title'         => 'required|min:5',
-            'content'       => 'required|min:10',
+            'title'   => 'required|min:5',
+            'content' => 'required|min:10',
         ]);
 
         Article::create([
-            'title'         => $request->title,
-            'content'       => $request->content,
+            'title'   => $request->title,
+            'slug'    => Str::slug($request->title, '-'), // Buat slug dari title
+            'content' => $request->content,
         ]);
 
         return redirect()->route('article.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
-     * show
+     * Menampilkan detail artikel.
      *
-     * @param  mixed
+     * @param  string  $id
      * @return View
      */
-    public function show(string $id): View
+    public function show(string $slug): View
     {
-        $articles = Article::findOrFail($id);
-
-        return view('admin.create.show', compact('articles'));
+        $article = Article::where('slug', $slug)->firstOrFail();
+        return view('admin.create.show', compact('article'));
     }
 
     /**
-     * edit
+     * Form untuk mengedit artikel.
      *
-     * @param  mixed
+     * @param  string  $id
      * @return View
      */
     public function edit(string $id): View
     {
-
-        $articles = Article::findOrFail($id);
-
-        return view('admin.create.edit', compact('articles'));
+        $article = Article::findOrFail($id);
+        return view('admin.create.edit', compact('article'));
     }
+
     /**
-     * update
+     * Memperbarui artikel.
      *
-     * @param  mixed
-     * @param  mixed
+     * @param  Request  $request
+     * @param  string   $id
      * @return RedirectResponse
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, string $id): RedirectResponse
     {
-
         $request->validate([
-            'title'         => 'required|min:5',
-            'content'       => 'required|min:10',
+            'title'   => 'required|min:5',
+            'content' => 'required|min:10',
         ]);
 
-        $articles = Article::findOrFail($id);
-        $articles->title = $request->input('title');
-        $articles->content = $request->input('content');
-        $articles->save();
+        $article = Article::findOrFail($id);
+        $article->update([
+            'title'   => $request->title,
+            'content' => $request->content,
+        ]);
 
-        return redirect()->route('article.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('articles.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
-     * destroy
+     * Menghapus artikel.
      *
-     * @param  mixed
+     * @param  string  $id
      * @return RedirectResponse
      */
-    public function destroy($id): RedirectResponse
+    public function destroy(string $id): RedirectResponse
     {
-        $articles = Article::findOrFail($id);
+        $article = Article::findOrFail($id);
+        $article->delete();
 
-        $articles->delete();
-
-        return redirect()->route('article.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('articles.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

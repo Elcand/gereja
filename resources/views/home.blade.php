@@ -39,6 +39,5 @@
 
     @include('church')
 
-
     @include('maps')
 @endsection

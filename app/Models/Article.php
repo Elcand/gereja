@@ -6,6 +6,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
@@ -15,35 +16,33 @@ class Article extends Model
      */
     protected $fillable = [
         'title',
-        'category',
+        'slug',
         'content',
     ];
 
-    protected $with = ['category'];
-
-
-    public function author(): BelongsTo
+    public function setTitleAttribute($article)
     {
-        return $this->belongsTo(User::class);
+
+        $this->attributes['title'] = $article;
+        $slug = Str::slug($article, '-');
+        $originalSlug = $slug;
+        $counter = 1;
+
+        // Pastikan slug unik
+        while (self::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
+        $this->attributes['slug'] = $slug;
     }
 
-    public function category(): BelongsTo
+    public static function boot()
     {
-        return $this->belongsTo(Category::class);
-    }
+        parent::boot();
 
-    // public function scopeFilter(Builder $query, array $filters): void
-    // {
-    //     $query->when(//+
-    //         $filters['category'] ?? false,//+
-    //         function (Builder $query, $category) {//+
-    //             $query->whereHas(//+
-    //                 'category',//+
-    //                 function (Builder $query) use ($category) {//+
-    //                     $query->where('title', $category);//+
-    //                 }//+
-    //             );//+
-    //         }//+
-    //     );//
-    // }
+        static::creating(function ($article) {
+            $article->slug = Str::slug($article->title, '-');
+        });
+    }
 }

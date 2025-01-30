@@ -9,7 +9,7 @@
             <div class="col-md-12 mt-3">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('articles.create') }}" class="btn btn-primary bg-gray-900 border-gray-900">Add
+                        <a href="{{ route('article.create') }}" class="btn btn-primary bg-gray-900 border-gray-900">Add
                             article</a>
                         <table class="table table-bordered mt-5">
                             <thead>
@@ -26,15 +26,15 @@
                                         <td>{{ $article->content }}</td>
                                         <td>
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('article.destroy', $article->id) }}" method="POST"
+                                                action="{{ route('article.destroy', $article->slug) }}" method="POST"
                                                 class="row w-15">
-                                                <a href="{{ route('article.show', $article->id) }}"
+                                                <a href="{{ route('article.show', $article->slug) }}"
                                                     class="btn btn-sm btn-dark m-2">SHOW</a>
-                                                <a href="{{ route('article.edit', $article->id) }}"
+                                                <a href="{{ route('article.edit', $article->slug) }}"
                                                     class="btn btn-sm btn-primary m-2">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
+                                                <button type="submit"   
                                                     class="btn btn-sm btn-danger bg-red-500 m-2">HAPUS</button>
                                             </form>
                                         </td>

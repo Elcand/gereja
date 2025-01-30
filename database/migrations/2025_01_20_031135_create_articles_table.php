@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('category_id')->constrained(
                 table: 'categories',
-                indexName: 'article_category_id'
+                indexName: 'posts_category_id'
             );
+            $table->string('slug');
             $table->text('content');
             $table->timestamps();
         });

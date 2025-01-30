@@ -15,10 +15,26 @@
                                     <div class="card-body p-6">
                                         <div class="post-header">
                                             <div class="post-category">
-                                                <a href="#" class="hover" rel="category"><a>
+                                                @if ($article->category)
+                                                    <a href="/articles{{ $article->slug }}">
+                                                        <span
+                                                            class="bg-{{ $article->category->color }}-100
+                                                                text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded
+                                                                dark:bg-primary-200 dark:text-primary-800">
+                                                            {{ $article->category->title }}
+                                                        </span>
+                                                    </a>
+                                                @else
+                                                    <span
+                                                        class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+                                                        Tanpa Kategori
+                                                    </span>
+                                                @endif
+
                                             </div>
                                             <h2 class="post-title h3 mt-1 mb-3">
-                                                <a class="link-dark" href="#">{{ $article->title }}</a>
+                                                <a class="text-gray-900"
+                                                    href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
                                             </h2>
                                         </div>
                                         <div class="post-footer">

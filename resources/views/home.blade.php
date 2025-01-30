@@ -7,9 +7,15 @@
         <div class=" swiper-fullscreen nav-dark" data-margin="0">
             <div class="swiper">
                 <div>
-                    <div class="swiper-slide bg-overlay bg-overlay-500 bg-dark bg-image"
-                        data-image-src="{{ asset('storage/' . $hero->image) }}">
-                    </div>
+                    @if ($hero && $hero->image)
+                        <div class="swiper-slide bg-overlay bg-overlay-500 bg-dark bg-image"
+                            data-image-src="{{ asset('storage/' . $hero->image) }}">
+                        </div>
+                    @else
+                        <div class="swiper-slide bg-overlay bg-overlay-500 bg-dark bg-image"
+                            data-image-src="{{ asset('assets/img/Gereja.jpeg') }}">
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="swiper-static">
@@ -29,7 +35,7 @@
 
     @include('about')
 
-    @include('article')
+    @include('articles')
 
     @include('church')
 

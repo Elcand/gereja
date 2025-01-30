@@ -5,7 +5,7 @@
     <section id="snippet-1" class="wrapper pt-4 ps-8 pr-4">
         <h1 class="text-gray-900 text-2xl font-extrabold mt-5 mb-3">Create Article</h1>
         <div class="card">
-            <form action="{{ route('article.store') }}" method="POST" class="ml-3 mr-3 mt-4">
+            <form action="{{ route('articles.store') }}" method="POST" class="ml-3 mr-3 mt-4">
 
                 @csrf
 

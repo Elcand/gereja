@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('article.update', $articles->id) }}" method="POST"
+                        <form action="{{ route('articles.update', $articles->id) }}" method="POST"
                             enctype="multipart/form-data">
 
                             @csrf

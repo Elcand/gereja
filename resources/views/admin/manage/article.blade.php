@@ -9,7 +9,7 @@
             <div class="col-md-12 mt-3">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('article.create') }}" class="btn btn-primary bg-gray-900 border-gray-900">Add
+                        <a href="{{ route('articles.create') }}" class="btn btn-primary bg-gray-900 border-gray-900">Add
                             article</a>
                         <table class="table table-bordered mt-5">
                             <thead>

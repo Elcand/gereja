@@ -13,7 +13,7 @@
                 {{ $about->description }}
             </p>
             <div class="col-lg-7">
-                <p class="lead fs-21">{{ $about->content }}</p>
+                <p class="lead fs-21">{{ $about->content }} </p>
             </div>
         </div>
     </div>

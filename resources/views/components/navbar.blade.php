@@ -15,7 +15,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#article">Article</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Article</a></li>
                     <li class="nav-item"><a class="nav-link" href="#church">Church</a></li>
                     <li class="nav-item"><a class="nav-link" href="#maps">Maps</a></li>
                 </ul>

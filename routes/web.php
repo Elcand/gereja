@@ -22,8 +22,8 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::resource('/article', ArticleController::class);
-
+Route::resource('/articles', ArticleController::class);
+Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
 
 Route::resource('/church', ChurchController::class);
 Route::get('/church/show/{id}', [ChurchController::class, 'show'])->name('church.show');

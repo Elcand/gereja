@@ -1,4 +1,4 @@
-<div id="article">
+<div id="articles">
     <div class="container py-14 py-md-14">
         <div class="row text-center">
             <h3 class="display-4 mb-5 text-uppercase font-bold">Article Gereja Immanuel

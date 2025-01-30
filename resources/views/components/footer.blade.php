@@ -29,10 +29,10 @@
                     <h4 class="widget-title text-white mb-3">Learn More</h4>
                     <ul class="list-unstyled  mb-0">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="#">Church</a></li>
-                        <li><a href="#">Article</a></li>
-                        <li><a href="/maps">Maps</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#church">Church</a></li>
+                        <li><a href="#articles">Article</a></li>
+                        <li><a href="#maps">Maps</a></li>
                     </ul>
                 </div>
             </div>

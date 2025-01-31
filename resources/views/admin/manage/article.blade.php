@@ -34,7 +34,7 @@
                                                     class="btn btn-sm btn-primary m-2">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"   
+                                                <button type="submit"
                                                     class="btn btn-sm btn-danger bg-red-500 m-2">HAPUS</button>
                                             </form>
                                         </td>

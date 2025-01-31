@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class ArticleController extends Controller
      */
     public function create(): View
     {
-        return view('admin.create.articles');
+        $categories = Category::all(); //kalo mau buat relasi kategori jan iupa ini!!!
+        return view('admin.create.article', compact('categories'));
     }
 
     /**
@@ -39,16 +41,21 @@ class ArticleController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd($request->all());
         $request->validate([
-            'title'   => 'required|min:5',
-            'content' => 'required|min:10',
+            'category_id' => 'required',
+            'ayat'        => 'required|string',
+            'title'       => 'required|string',
+            'content'     => 'required|string',
         ]);
 
-        Article::create([
-            'title'   => $request->title,
-            'slug'    => Str::slug($request->title, '-'), // Buat slug dari title
-            'content' => $request->content,
-        ]);
+        // Menyimpan artikel ke database
+        $article = new Article();
+        $article->category_id = $request->category_id;  // Menyimpan kategori yang dipilih
+        $article->ayat = $request->ayat;  // Menyimpan ayat
+        $article->title = $request->title;  // Menyimpan judul
+        $article->content = $request->content;  // Menyimpan konten
+        $article->save();  // Menyimpan artikel ke database
 
         return redirect()->route('article.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
@@ -87,17 +94,20 @@ class ArticleController extends Controller
     public function update(Request $request, string $id): RedirectResponse
     {
         $request->validate([
-            'title'   => 'required|min:5',
-            'content' => 'required|min:10',
+            'category_id' => 'required',
+            'ayat'        => 'required|string',
+            'title'       => 'required|string',
+            'content'     => 'required|string',
         ]);
 
         $article = Article::findOrFail($id);
         $article->update([
             'title'   => $request->title,
+            'ayat'    => $request->ayat,
             'content' => $request->content,
         ]);
 
-        return redirect()->route('articles.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('article.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
@@ -111,6 +121,6 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $article->delete();
 
-        return redirect()->route('articles.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('article.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

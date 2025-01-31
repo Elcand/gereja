@@ -14,13 +14,17 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('category_id')->constrained(
-                table: 'categories',
-                indexName: 'posts_category_id'
-            );
             $table->string('slug');
+            $table->string('ayat');
             $table->text('content');
+            $table->unsignedBigInteger('category_id'); // kolom foreign key
             $table->timestamps();
+
+            // Menambahkan foreign key constraint
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade'); // Menghapus artikel jika kategori dihapus
         });
     }
 
@@ -29,6 +33,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('article');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropForeign(['category_id']); // Menghapus foreign key
+        });
+        Schema::dropIfExists('articles');
     }
 };

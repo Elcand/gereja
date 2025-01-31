@@ -23,7 +23,8 @@ Route::get('/dashboard', function () {
 });
 
 Route::resource('/admin/article', ArticleController::class);
-Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
+Route::post('/admin/article', [ArticleController::class, 'store'])->name('article.store');
+Route::get('/admin/article', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/show/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::resource('/admin/church', ChurchController::class);

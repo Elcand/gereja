@@ -14,11 +14,13 @@ class Article extends Model
     /**
      * @var array
      */
-    protected $fillable = [
-        'title',
-        'slug',
-        'content',
-    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    protected $fillable = ['title', 'ayat', 'content', 'category_id'];
 
     public function setTitleAttribute($article)
     {

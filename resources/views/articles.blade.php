@@ -31,7 +31,7 @@
                                             </div>
                                             <h2 class="post-title h3 mt-1 mb-3">
                                                 <a class="text-gray-900"
-                                                    href="{{ route('user.article.show', $article->slug) }}">{{ $article->title }}</a>
+                                                    href="{{ route('article.more', $article->slug) }}">{{ $article->title }}</a>
                                             </h2>
                                         </div>
                                         <div class="post-footer">

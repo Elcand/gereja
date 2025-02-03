@@ -125,5 +125,9 @@ class ArticleController extends Controller
         return redirect()->route('article.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
-    
+    public function more($slug)
+    {
+        $article = Article::where('slug', $slug)->first();
+        return view('article', compact('article'));
+    }
 }

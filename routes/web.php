@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 Route::resource('/admin/article', ArticleController::class);
 Route::post('/admin/article', [ArticleController::class, 'store'])->name('article.store');
 Route::get('/admin/article', [ArticleController::class, 'index'])->name('article.index');
-Route::get('/article/show/{slug}', [ArticleController::class, 'show'])->name('user.article.show');
+Route::get('/article/{slug}/more', [ArticleController::class, 'more'])->name('article.more');
 
 // Route::controller('CategoryController::class')->group(function () {
 Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index');

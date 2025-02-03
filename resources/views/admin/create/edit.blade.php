@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('article.update', $articles->id) }}" method="POST"
+                        <form action="{{ route('article.update', $article->id) }}" method="POST"
                             enctype="multipart/form-data">
 
                             @csrf
@@ -18,7 +18,7 @@
                                 <label class="font-weight-bold">Title</label>
                                 <input type="text"
                                     class="form-control @error('title') is-invalid @enderror rounded-md border-gray-200"
-                                    name="title" value="{{ old('title', $articles->title) }}" placeholder="Input title">
+                                    name="title" value="{{ old('title', $article->title) }}" placeholder="Input title">
 
                                 <!-- error message untuk title -->
                                 @error('title')
@@ -31,7 +31,7 @@
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">Content</label>
                                 <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="5"
-                                    placeholder="Input content">{{ old('content', $articles->content) }}</textarea>
+                                    placeholder="Input content">{{ old('content', $article->content) }}</textarea>
 
                                 <!-- error message untuk description -->
                                 @error('content')

@@ -26,11 +26,11 @@
                                         <td>{{ $article->content }}</td>
                                         <td>
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('article.destroy', $article->slug) }}" method="POST"
+                                                action="{{ route('article.destroy', $article->id) }}" method="POST"
                                                 class="row w-15">
-                                                <a href="{{ route('article.show', $article->slug) }}"
+                                                <a href="{{ route('article.show', $article->id) }}"
                                                     class="btn btn-sm btn-dark m-2">SHOW</a>
-                                                <a href="{{ route('article.edit', $article->slug) }}"
+                                                <a href="{{ route('article.edit', $article->id) }}"
                                                     class="btn btn-sm btn-primary m-2">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')

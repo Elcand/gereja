@@ -29,7 +29,7 @@ class ArticleController extends Controller
      */
     public function create(): View
     {
-        $categories = Category::all(); //kalo mau buat relasi kategori jan iupa ini!!!
+        $categories = Category::all(); //kalo mau buat relasi kategori jan lupa ini!!!
         return view('admin.create.article', compact('categories'));
     }
 
@@ -66,9 +66,10 @@ class ArticleController extends Controller
      * @param  string  $id
      * @return View
      */
-    public function show(string $slug): View
+    public function show(string $category_id): View
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
+        $article = Article::where('category_id', $category_id)
+            ->first();
         return view('admin.create.show', compact('article'));
     }
 

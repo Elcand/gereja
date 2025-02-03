@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapsController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ChurchController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -25,7 +26,17 @@ Route::get('/dashboard', function () {
 Route::resource('/admin/article', ArticleController::class);
 Route::post('/admin/article', [ArticleController::class, 'store'])->name('article.store');
 Route::get('/admin/article', [ArticleController::class, 'index'])->name('article.index');
-Route::get('/article/show/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/article/show/{slug}', [ArticleController::class, 'show'])->name('user.article.show');
+
+// Route::controller('CategoryController::class')->group(function () {
+Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::get('/admin/category/show/{slug}', [CategoryController::class, 'show'])->name('category.show');
+Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store');
+Route::put('/admin/category/', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/admin/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+Route::get('/admin/category/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+// });
 
 Route::resource('/admin/church', ChurchController::class);
 Route::get('/church/show/{id}', [ChurchController::class, 'show'])->name('church.show');

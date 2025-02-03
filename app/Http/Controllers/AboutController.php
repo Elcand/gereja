@@ -25,7 +25,7 @@ class AboutController extends Controller
     public function aboutPage(): View
     {
         $about = About::first(); // Mengambil data pertama dari tabel About
-        @dd($about);
+        // @dd($about);
         return view('about', compact('about')); // Mengirimkan data ke view
     }
 

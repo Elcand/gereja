@@ -14,13 +14,11 @@
                                 <div class="card shadow-lg">
                                     <div class="card-body p-6">
                                         <div class="post-header">
-                                            <div class="post-category">
-                                                @if ($article->category)
+                                            <div class="post-category mb-5">
+                                                @if ($article->category_id)
                                                     <a href="/articles{{ $article->slug }}">
                                                         <span
-                                                            class="bg-{{ $article->category->color }}-100
-                                                                        text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded
-                                                                        dark:bg-primary-200 dark:text-primary-800">
+                                                            class="text-primary-800 text-xs font-medium inline-flex items-center mr px-2.5 py-0.5 rounded                                                                       dark:bg-primary-200 dark:text-primary-800">
                                                             {{ $article->category->name }}
                                                         </span>
                                                     </a>
@@ -30,11 +28,10 @@
                                                         Tanpa Kategori
                                                     </span>
                                                 @endif
-
                                             </div>
                                             <h2 class="post-title h3 mt-1 mb-3">
                                                 <a class="text-gray-900"
-                                                    href="{{ route('articles.show', $article->slug) }}">{{ $article->title }}</a>
+                                                    href="{{ route('user.article.show', $article->slug) }}">{{ $article->title }}</a>
                                             </h2>
                                         </div>
                                         <div class="post-footer">

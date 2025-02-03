@@ -12,7 +12,8 @@
                         <div class="swiper-slide">
                             <article>
                                 <figure class="overlay overlay-1 hover-scale rounded"
-                                    style="max-height: 400px; width: auto;"><a href="#"> <img
+                                    style="max-height: 400px; width: auto;"><a
+                                        href="{{ route('church.more', $church->id) }}"> <img
                                             src="{{ asset('storage/' . $church->image) }}" alt="" /></a>
                                     <figcaption>
                                         <h5 class="from-top mb-0">Read More</h5>

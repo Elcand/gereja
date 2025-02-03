@@ -2,7 +2,8 @@
     <div class="container flex-lg-row flex-nowrap align-items-center">
         <div class="navbar-brand">
             <a href="/">
-                <img src="#" srcset="#" alt="" />
+                <img src="{{ asset('assets/img/logo.png') }}" srcset="{{ asset('assets/img/logo.png') }}" alt="Logo"
+                    style="border-radius: auto; height: 30px;" />
                 <h3 class="text-white fs-25 mb-5 text-center">Immanuel Church</h3>
             </a>
         </div>
@@ -17,7 +18,6 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#articles">Article</a></li>
                     <li class="nav-item"><a class="nav-link" href="#church">Church</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#maps">Maps</a></li>
                 </ul>
             </div>
         </div>

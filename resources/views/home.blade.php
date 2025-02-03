@@ -38,6 +38,4 @@
     @include('articles')
 
     @include('church')
-
-    @include('maps')
 @endsection

@@ -14,4 +14,9 @@ class Maps extends Model
         'latitude',
         'longitude'
     ];
+
+    public function church()
+    {
+        return $this->belongsTo(Church::class);
+    }
 }

@@ -40,6 +40,7 @@ Route::get('/admin/category/{id}', [CategoryController::class, 'edit'])->name('c
 
 Route::resource('/admin/church', ChurchController::class);
 Route::get('/church/show/{id}', [ChurchController::class, 'show'])->name('church.show');
+Route::get('/church/{slug}/more', [ChurchController::class, 'more'])->name('church.more');
 
 Route::resource('/admin/maps', MapsController::class);
 Route::get('/maps/show/{id}', [MapsController::class, 'show'])->name('maps.show');

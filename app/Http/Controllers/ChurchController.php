@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Church;
+use App\Models\Maps;
 use Illuminate\Container\Attributes\Storage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -158,5 +159,13 @@ class ChurchController extends Controller
         $church = Church::findOrFail($id);
         $church->delete();
         return redirect()->route('church.index')->with(['success' => 'Data Berhasil Dihapu!']);
+    }
+
+    public function more($slug)
+    {
+        $church = Church::findOrFail($slug);
+        $maps = Maps::where('id', $church->id)->get();
+        // dd($church);
+        return view('churchmore', ['church' => $church, 'map' => $maps]);
     }
 }

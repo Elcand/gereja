@@ -128,13 +128,25 @@ class ArticleController extends Controller
     public function more($slug)
     {
         $article = Article::where('slug', $slug)->first();
-        return view('article', compact('article'));
+        $categories = Category::all();
+        // dd($categories);
+
+        return view('article', compact('article', 'categories'));
     }
 
-    public function filter()
+    public function filter(Request $request)
     {
-        $articles = Article::latest()->paginate(10);
+        // dd($request);
         $categories = Category::all();
+
+        $articles = Article::query();
+
+        if ($request->has('category_id') && $request->category_id != null) {
+            $articles->where('category_id', $request->category_id);
+        }
+
+        $articles = $articles->latest()->paginate(10);
+
         return view('articles', ['articles' => $articles, 'categories' => $categories]);
     }
 }

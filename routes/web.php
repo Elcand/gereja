@@ -5,6 +5,7 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapsController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChurchController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -17,11 +18,14 @@ Route::resource('/admin/about', AboutController::class);
 Route::get('/admin/about', [AboutController::class, 'index'])->name('about.index');
 Route::post('/about', [AboutController::class, 'storeOrUpdate'])->name('about.storeOrUpdate');
 
-
-
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
+Route::get('/login', [AuthenticationController::class, 'index'])->name('login.page');
+Route::post('/login', [AuthenticationController::class, 'authenticate']);
+Route::post('/logout', [AuthenticationController::class, 'logout']);
+// Route::get('/auth/login', [AuthenticationController::class, 'index'])->name('login.page');
+// Route::post('/login/proccess', [AuthenticationController::class, 'process'])->name('admin.login.process');
 
 Route::resource('/admin/article', ArticleController::class);
 Route::post('/admin/article', [ArticleController::class, 'store'])->name('article.store');

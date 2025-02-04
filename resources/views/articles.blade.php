@@ -6,59 +6,64 @@
                 </h3>
             </div>
             <div class="form-floating">
-                <select name="category_id"
-                    class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
-                    <option disabled {{ old('category_id') ? '' : 'selected' }}>Pilih Kategori</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                            {{ $category->name }}</option>
-                    @endforeach
-                </select>
+                @if ($categories->isNotEmpty())
+                    <select name="category_id"
+                        class="block w-full p-2.5 text-sm text-gray-900 border rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" disabled>Pilih Kategori</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                @endif
             </div>
         </div>
         <div class="swiper-container blog grid-view mb-4" data-margin="20" data-dots="true" data-items-xl="3"
             data-items-md="2" data-items-xs="1">
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    @foreach ($articles as $article)
-                        <div class="swiper-slide">
-                            <article>
-                                <div class="card shadow-lg">
-                                    <div class="card-body p-6">
-                                        <div class="post-header">
-                                            <div class="post-category mb-5">
-                                                @if ($article->category_id)
-                                                    <a href="/articles{{ $article->slug }}">
+                    @if ($articles->isEmpty())
+                        <p class="text-gray-500">Tidak ada artikel yang ditemukan untuk kategori yang dipilih.</p>
+                    @else
+                        @foreach ($articles as $article)
+                            <div class="swiper-slide">
+                                <article>
+                                    <div class="card shadow-lg">
+                                        <div class="card-body p-6">
+                                            <div class="post-header">
+                                                <div class="post-category mb-5">
+                                                    @if ($article->category_id)
+                                                        <a href="/articles{{ $article->slug }}">
+                                                            <span
+                                                                class="text-primary-800 text-xs font-medium inline-flex items-center mr px-2.5 py-0.5 rounded                                                                       dark:bg-primary-200 dark:text-primary-800">
+                                                                {{ $article->category->name }}
+                                                            </span>
+                                                        </a>
+                                                    @else
                                                         <span
-                                                            class="text-primary-800 text-xs font-medium inline-flex items-center mr px-2.5 py-0.5 rounded                                                                       dark:bg-primary-200 dark:text-primary-800">
-                                                            {{ $article->category->name }}
+                                                            class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+                                                            Tanpa Kategori
                                                         </span>
-                                                    </a>
-                                                @else
-                                                    <span
-                                                        class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
-                                                        Tanpa Kategori
-                                                    </span>
-                                                @endif
+                                                    @endif
+                                                </div>
+                                                <h2 class="post-title h3 mt-1 mb-3">
+                                                    <a class="text-gray-900"
+                                                        href="{{ route('article.more', $article->slug) }}">{{ $article->title }}</a>
+                                                </h2>
                                             </div>
-                                            <h2 class="post-title h3 mt-1 mb-3">
-                                                <a class="text-gray-900"
-                                                    href="{{ route('article.more', $article->slug) }}">{{ $article->title }}</a>
-                                            </h2>
-                                        </div>
-                                        <div class="post-footer">
-                                            <ul class="post-meta d-flex mb-0">
-                                                <li class="post-date">
-                                                    <i class="uil uil-calendar-alt"></i>
-                                                    <span>{{ $article->created_at->diffForHumans() }}</span>
-                                                </li>
-                                            </ul>
+                                            <div class="post-footer">
+                                                <ul class="post-meta d-flex mb-0">
+                                                    <li class="post-date">
+                                                        <i class="uil uil-calendar-alt"></i>
+                                                        <span>{{ $article->created_at->diffForHumans() }}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
+                                </article>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

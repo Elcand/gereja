@@ -1,5 +1,6 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Article - Show')
 
 @section('content')
     <div class="container mt-5 mb-5 ps-8">

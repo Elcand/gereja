@@ -1,5 +1,6 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'About - Admin')
 
 @section('content')
     <div class="container mt-8">

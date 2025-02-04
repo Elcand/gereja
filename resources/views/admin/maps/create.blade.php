@@ -1,5 +1,7 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Map - Create')
+
 @section('content')
     <section id="snippet-1" class="wrapper pt-8 ps-8 pr-4">
         <h1 class="text-gray-900 text-2xl font-extrabold mt-5 mb-3">Create Maps</h1>

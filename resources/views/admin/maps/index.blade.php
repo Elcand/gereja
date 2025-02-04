@@ -1,5 +1,7 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Map - Admin')
+
 @section('content')
     <div class="container mt-8">
         <h1 class="text-gray-900 text-2xl font-bold mt-8 ps-4 mb-2">Create Location</h1>

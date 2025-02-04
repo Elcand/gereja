@@ -1,5 +1,7 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Church - Update')
+
 @section('content')
     <section id="snippet-1" class="wrapper pt-4 ps-8 pr-4">
         <h1 class="text-gray-900 text-2xl font-extrabold mt-5 mb-3">Create Church</h1>

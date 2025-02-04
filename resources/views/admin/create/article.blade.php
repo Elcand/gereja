@@ -1,5 +1,6 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Article - Create')
 
 @section('content')
     <section id="snippet-1" class="wrapper pt-4 ps-8 pr-4">

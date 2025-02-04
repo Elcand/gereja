@@ -1,5 +1,6 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Church - Show')
 
 @section('content')
     <div class="container mt-10 mb-5 ps-8">

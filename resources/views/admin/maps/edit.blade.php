@@ -1,5 +1,7 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Map - Update')
+
 @section('content')
     <div class="container mt-15 ps-11 pe-8 mb-5">
         <h1 class="text-gray-900 text-2xl font-extrabold mt-5 mb-3">Edit Location</h1>

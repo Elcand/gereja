@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('title', 'Edit Data')
+@section('title', 'Article - Update')
 
 @section('content')
     <div class="container mt-15 ps-8 mb-5">

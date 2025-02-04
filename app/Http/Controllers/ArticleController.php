@@ -130,4 +130,11 @@ class ArticleController extends Controller
         $article = Article::where('slug', $slug)->first();
         return view('article', compact('article'));
     }
+
+    public function filter()
+    {
+        $articles = Article::latest()->paginate(10);
+        $categories = Category::all();
+        return view('articles', ['articles' => $articles, 'categories' => $categories]);
+    }
 }

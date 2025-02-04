@@ -27,6 +27,7 @@ Route::resource('/admin/article', ArticleController::class);
 Route::post('/admin/article', [ArticleController::class, 'store'])->name('article.store');
 Route::get('/admin/article', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/{slug}/more', [ArticleController::class, 'more'])->name('article.more');
+Route::get('/article/category/{slug}', [ArticleController::class, 'filter'])->name('filter.article');
 
 // Route::controller('CategoryController::class')->group(function () {
 Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index');

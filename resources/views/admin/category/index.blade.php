@@ -2,6 +2,8 @@
 
 @extends('admin.layouts.layout')
 
+@section('title', 'Category - Admin')
+
 @section('content')
     <div class="container mt-5">
         <div class="row ps-3">
@@ -50,7 +52,7 @@
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('category.destroy', $category->id) }}" method="POST"
                                                 class="row w-15">
-                                                <a href="{{ route('category.show', $category->slug, ) }}"
+                                                <a href="{{ route('category.show', $category->slug) }}"
                                                     class="btn btn-sm btn-dark m-2">SHOW</a>
                                                 <a href="{{ route('category.edit', $category->slug) }}"
                                                     class="btn btn-sm btn-primary m-2">EDIT</a>

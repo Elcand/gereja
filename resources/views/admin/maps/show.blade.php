@@ -1,5 +1,7 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Map - Show')
+
 @section('content')
     <div class="ps-12 pe-8">
         <div class="row my-10">

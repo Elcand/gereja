@@ -1,8 +1,20 @@
 <div id="articles">
     <div class="container py-14 py-md-14">
         <div class="row text-center">
-            <h3 class="display-4 mb-5 text-uppercase font-bold">Article Gereja Immanuel
-            </h3>
+            <div>
+                <h3 class="display-4 mb-5 text-uppercase font-bold">Article Gereja Immanuel
+                </h3>
+            </div>
+            <div class="form-floating">
+                <select name="category_id"
+                    class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500">
+                    <option disabled {{ old('category_id') ? '' : 'selected' }}>Pilih Kategori</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         <div class="swiper-container blog grid-view mb-4" data-margin="20" data-dots="true" data-items-xl="3"
             data-items-md="2" data-items-xs="1">

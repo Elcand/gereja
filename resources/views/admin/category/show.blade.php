@@ -1,5 +1,7 @@
 @extends('admin.layouts.layout')
 
+@section('title', 'Category - Show')
+
 @section('content')
     <div class="container mt-5">
         <div class="row ps-3">

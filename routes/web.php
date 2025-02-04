@@ -8,6 +8,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChurchController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -18,12 +19,10 @@ Route::resource('/admin/about', AboutController::class);
 Route::get('/admin/about', [AboutController::class, 'index'])->name('about.index');
 Route::post('/about', [AboutController::class, 'storeOrUpdate'])->name('about.storeOrUpdate');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::get('/dashboard', [DashController::class, 'index'])->name('dashboard.index');
 Route::get('/login', [AuthenticationController::class, 'index'])->name('login.page');
 Route::post('/login', [AuthenticationController::class, 'authenticate']);
-Route::post('/logout', [AuthenticationController::class, 'logout']);
+Route::post('/logout', [AuthenticationController::class, 'logout'])->name('log.out');
 // Route::get('/auth/login', [AuthenticationController::class, 'index'])->name('login.page');
 // Route::post('/login/proccess', [AuthenticationController::class, 'process'])->name('admin.login.process');
 
@@ -31,7 +30,6 @@ Route::resource('/admin/article', ArticleController::class);
 Route::post('/admin/article', [ArticleController::class, 'store'])->name('article.store');
 Route::get('/admin/article', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/{slug}/more', [ArticleController::class, 'more'])->name('article.more');
-Route::get('/article/category/{slug}', [ArticleController::class, 'filter'])->name('filter.article');
 
 // Route::controller('CategoryController::class')->group(function () {
 Route::get('/admin/category', [CategoryController::class, 'index'])->name('category.index');

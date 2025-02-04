@@ -68,9 +68,9 @@ class ArticleController extends Controller
      */
     public function show(string $category_id): View
     {
-        $article = Article::where('category_id', $category_id)
+        $articles = Article::where('category_id', $category_id)
             ->first();
-        return view('admin.create.show', compact('article'));
+        return view('admin.create.show', compact('articles'));
     }
 
     /**

@@ -37,7 +37,7 @@ class AuthenticationController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerate();
-        return redirect()->route('login');
+        return redirect()->route('login.page');
     }
 
     // public function process(Request $request)

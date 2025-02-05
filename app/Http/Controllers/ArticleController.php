@@ -66,11 +66,11 @@ class ArticleController extends Controller
      * @param  string  $id
      * @return View
      */
-    public function show(string $category_id): View
+    public function show(): View
     {
-        $articles = Article::where('category_id', $category_id)
-            ->first();
-        return view('admin.create.show', compact('articles'));
+        $article = Article::first();
+        // dd($articles);
+        return view('admin.create.show', compact('article'));
     }
 
     /**

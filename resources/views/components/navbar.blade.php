@@ -2,9 +2,15 @@
     <div class="container flex-lg-row flex-nowrap align-items-center">
         <div class="navbar-brand">
             <a href="/">
-                <img src="{{ asset('assets/img/logo.png') }}" srcset="{{ asset('assets/img/logo.png') }}" alt="Logo"
-                    style="border-radius: auto; height: 30px;" />
-                <h3 class="text-white fs-25 mb-5 text-center">Immanuel Church</h3>
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ asset('assets/img/logo.png') }}" srcset="{{ asset('assets/img/logo.png') }}"
+                            alt="Logo" style="border-radius: auto; height: 50px;" />
+                    </div>
+                    <div class="col">
+                        <h3 class="text-white fs-25 mt-2 mb-5 text-center">Immanuel Church</h3>
+                    </div>
+                </div>
             </a>
         </div>
         <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
